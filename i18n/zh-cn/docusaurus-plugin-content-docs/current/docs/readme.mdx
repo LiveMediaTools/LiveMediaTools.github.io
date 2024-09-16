@@ -1,0 +1,35 @@
+import DocCardList from '@theme/DocCardList'
+import { useCurrentSidebarCategory } from '@docusaurus/theme-common'
+
+# 介绍
+
+ Xiu是使用纯Rust开发的直播流媒体框架，目标是让开发者方便、快捷的搭建直播流媒体服务。
+
+ 它即支持流行的流媒体协议，如RTMP/HTTP-FLV/HLS等，可以开箱即用，也能方便的对其它协议进行扩展，进行按需开发。
+
+ 目前支持的功能包括：
+
+- [x] 支持多平台（Linux/Mac/Windows）
+- [x] 支持RTMP
+  - [x] 支持发布和订阅H264/AAC 直播流；
+  - [x] 支持秒开（Gop cache）；
+  - [x] 支持转换到HLS/HTTP-FLV协议； 
+  - [x] 支持部署集群；
+- [x] 支持RTSP
+   - [x] 支持通过TCP（Interleaved）和UDP发布或订阅H.265/H.264/AAC流；
+   - [x] 支持转换到RTMP/HLS/HTTP-FLV协议；
+- [x] 支持WebRTC（Whip/Whep）
+   - [x] 支持使用Whip发布rtc流；
+   - [x] 支持使用Whep订阅rtc流；
+   - [x] 支持转换到RTMP/HLS/HTTP-FLV协议；
+- [x] 支持订阅HLS/HTTPFLV直播流
+- [x] 支持命令行或者配置文件配置服务
+- [x] 支持HTTP API/notify
+    - [x] 支持查询流信息；
+    - [x] 支持流事件通知；
+- [x] 支持token鉴权
+- [x] 支持把直播流录制成HLS协议(m3u8+ts)文件
+
+接下来对功能进行一一介绍。
+
+<DocCardList items={useCurrentSidebarCategory().items} />

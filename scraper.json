@@ -1,0 +1,66 @@
+{
+  "index_uid": "docs-v1-staging",
+  "start_urls": [],
+  "stop_urls": [],
+  "sitemap_urls": [],
+  "custom_settings": {
+    "filterableAttributes": ["lang"]
+  },
+  "selectors": {
+    "default": {
+      "lvl0": "article h1",
+      "lvl1": "article h2",
+      "lvl2": "article h3",
+      "lvl3": "article h4",
+      "lvl4": "article h5",
+      "text": "article p, article li"
+    },
+    "docs": {
+      "lvl0": {
+        "selector": "",
+        "default_value": "Documentation"
+      },
+      "lvl1": "article h1",
+      "lvl2": "article h2",
+      "lvl3": "article h3",
+      "lvl4": "article h4",
+      "lvl5": "article h5",
+      "text": "article p, article li"
+    },
+    "config": {
+      "lvl0": {
+        "selector": "",
+        "default_value": "Configuration"
+      },
+      "lvl1": "article h2",
+      "lvl2": "article h3",
+      "lvl3": "article h4",
+      "lvl4": "article table td:first-child",
+      "text": "article :not(blockquote) > p, article li, article table td:last-child"
+    },
+    "api-js": {
+      "lvl0": {
+        "selector": "",
+        "default_value": "JS API"
+      },
+      "lvl1": "article h1",
+      "lvl2": "article h2",
+      "lvl3": "article h3",
+      "lvl4": "article h4",
+      "lvl5": "article h5",
+      "text": "article :not(blockquote) > p, article li"
+    },
+    "blog": {
+      "lvl0": {
+        "selector": "",
+        "default_value": "References"
+      },
+      "lvl1": "article h1",
+      "lvl2": "article h2",
+      "lvl3": "article h3",
+      "lvl4": "article h4",
+      "lvl5": "article h5",
+      "text": "article p, article li"
+    }
+  }
+}
