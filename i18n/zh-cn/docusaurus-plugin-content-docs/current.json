@@ -3,7 +3,7 @@
     "message": "v0.12.5",
     "description": "The label for version current"
   },
-  "sidebar.docs.category.Docs": {
+  "sidebar.docs.category.Ffmpeg": {
     "message": "文档",
     "description": "The label for category Guides in sidebar guides"
   },

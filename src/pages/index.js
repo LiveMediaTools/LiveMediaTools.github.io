@@ -8,10 +8,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import { useLatestVersion } from '@docusaurus/plugin-content-docs/client'
 import Translate, { translate } from '@docusaurus/Translate'
-import { CreateTauriApp } from '@theme/Command'
 
-import clsx from 'clsx';
-import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import Link from '@docusaurus/Link';
 import Translate, { translate } from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -20,14 +17,7 @@ import useBaseUrl, { useBaseUrlUtils } from '@docusaurus/useBaseUrl';
 // import Image from '@theme/IdealImage';
 import Layout from '@theme/Layout';
 
-import Tweet from '@site/src/components/Tweet';
-// import Tweets, {type TweetItem} from '@site/src/data/tweets';
-import Quotes from '@site/src/data/quotes';
-// import Features, {type FeatureItem} from '@site/src/data/features';
-import Heading from '@theme/Heading';
-
-// import styles from './styles.module.css';
-// import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
+import { Redirect } from '@docusaurus/router';
 
 // See translations for label and description
 
@@ -207,69 +197,6 @@ function Features() {
   )
 }
 
-function Roadmap() {
-  const items = [
-    {
-      title: translate({ message: 'Mobile Bundler' }),
-      description: translate({
-        message: 'Bundle to all major mobile device operating systems',
-      }),
-      icon: 'phone',
-    },
-    {
-      title: translate({ message: 'Cross Compiler' }),
-      description: translate({
-        message:
-          'Generate bundled binaries from select operating system environments',
-      }),
-      icon: 'gear-wide-connected',
-    },
-    {
-      title: translate({ message: 'Other Bindings' }),
-      description: translate({
-        message:
-          'Go, Nim, Python, C++ and other bindings are possible with the stable API',
-      }),
-      icon: 'arrow-repeat',
-    },
-    {
-      title: translate({ message: 'One-Time Commands' }),
-      description: translate({
-        message: 'Run a command that is no longer available after first run',
-      }),
-      icon: 'stars',
-    },
-    {
-      title: translate({ message: 'Alternative Renderers' }),
-      description: translate({
-        message:
-          'Candidate presentation for Webview alternatives, including GL windowing',
-      }),
-      icon: 'brush',
-    },
-    {
-      title: translate({ message: 'Channel API' }),
-      description: translate({
-        message: 'Send messages through a channel',
-      }),
-      icon: 'signpost-2',
-    },
-  ]
-
-  return (
-    <div className={styles.row}>
-      {items.map((item, index) => {
-        return (
-          <FeatureRoadmapEntry
-            {...item}
-            key={index}
-            cname={styles.roadmapIcon}
-          />
-        )
-      })}
-    </div>
-  )
-}
 
 function FeatureRoadmapEntry(props) {
   return (
@@ -292,146 +219,9 @@ function FeatureRoadmapEntry(props) {
   )
 }
 
-function OfficialPartners() {
-  // All logos should be a svg with a 500x100 frame (content resized inside
-  // with padding to appear balanced).
-  const items = [
-    {
-      name: 'CrabNebula',
-      link: 'https://www.crabnebula.dev',
-      logoColorDark: 'crabnebula_color_dark.svg',
-      logoColorLight: 'crabnebula_color_light.svg',
-    },
-  ]
 
-  return (
-    <div className={styles.row}>
-      {items.map((item, index) => {
-        return <Logo className={styles.partner} brand={item} key={index} />
-      })}
-    </div>
-  )
-}
 
-function PremiumSponsors() {
-  // All logos should be a svg with a 500x100 frame (content resized inside
-  // with padding to appear balanced).
-  const items = [
-    {
-      name: 'AWS',
-      link: 'https://aws.amazon.com',
-      logoColorDark: 'AWS_color_dark.svg',
-      logoColorLight: 'AWS_color_light.svg',
-    },
-    {
-      name: '1Password',
-      link: 'https://1password.com',
-      logoColorDark: '1Password_color_dark.svg',
-      logoColorLight: '1Password_color_light.svg',
-    },
-    {
-      name: 'Cloudflare',
-      link: 'https://www.cloudflare.com',
-      logoColorDark: 'Cloudflare_color_dark.svg',
-      logoColorLight: 'Cloudflare_color_light.svg',
-    },
-    {
-      name: 'nlnet',
-      link: 'https://nlnet.nl',
-      logoColorDark: 'nlnet_color_dark.svg',
-      logoColorLight: 'nlnet_color_light.svg',
-    },
-    {
-      name: 'Padloc',
-      link: 'https://padloc.app',
-      logoColorDark: 'padloc_color_light.svg',
-      logoColorLight: 'padloc_color_light.svg',
-    },
-    {
-      name: 'Meilisearch',
-      link: 'https://www.meilisearch.com',
-      logoColorDark: 'meilisearch_color_dark.svg',
-      logoColorLight: 'meilisearch_color_light.svg',
-    },
-  ]
 
-  return (
-    <div className={styles.row}>
-      {items.map((item, index) => {
-        return <Logo className={styles.premium} brand={item} key={index} />
-      })}
-    </div>
-  )
-}
-
-function Sponsors() {
-  // All logos should be a svg with a 500x100 frame (content resized inside
-  // with padding to appear balanced).
-  const items = [
-    {
-      name: 'DigitalOcean',
-      link: 'https://www.digitalocean.com',
-      logoColorDark: 'DigitalOcean_color_dark.svg',
-      logoColorLight: 'DigitalOcean_color_light.svg',
-    },
-    {
-      name: 'Netlify',
-      link: 'https://www.netlify.com',
-      logoColorDark: 'Netlify_color_dark.svg',
-      logoColorLight: 'Netlify_color_light.svg',
-    },
-    {
-      name: 'keygen',
-      link: 'https://keygen.sh',
-      logoColorDark: 'keygen_color_dark.svg',
-      logoColorLight: 'keygen_color_light.svg',
-    },
-    {
-      name: 'ClickUp',
-      link: 'https://clickup.com',
-      logoColorDark: 'ClickUp_color_dark.svg',
-      logoColorLight: 'ClickUp_color_light.svg',
-    },
-    {
-      name: 'Mintter',
-      link: 'https://mintter.com',
-      logoColorDark: 'Mintter_color_dark.svg',
-      logoColorLight: 'Mintter_color_light.svg',
-    },
-    {
-      name: 'Leniolabs_',
-      link: 'https://www.leniolabs.com',
-      logoColorDark: 'leniolabs_color_dark.svg',
-      logoColorLight: 'leniolabs_color_light.svg',
-    },
-    {
-      name: 'VPS Server',
-      link: 'https://www.vpsserver.com',
-      logoColorDark: 'vps_server_color_dark.svg',
-      logoColorLight: 'vps_server_color_light.svg',
-    },
-    {
-      name: 'Dimension',
-      link: 'https://dimension.dev/',
-      logoColorDark: 'dimension_color_dark.svg',
-      logoColorLight: 'dimension_color_light.svg',
-    },
-    {
-      name: 'Lightfinder',
-      link: 'https://lightfinder.com/',
-      logoColorDark: 'lightfinder_color_dark.svg',
-      logoColorLight: 'lightfinder_color_light.svg',
-    },
-  ]
-
-  return (
-    <div className={styles.row}>
-      {items.map((item, index) => {
-        return <Logo className={styles.sponsor} brand={item} key={index} />
-      })}
-    </div>
-  )
-}
 
 function Logo(props) {
   const { colorMode } = useColorMode()
@@ -470,93 +260,60 @@ function Logo(props) {
   )
 }
 
-function DynamicHeaderImage() {
-  const { colorMode } = useColorMode()
-  const [isDarkMode, setIsDarkMode] = useState(false)
-
-  // Pre-fetch images
-  useEffect(() => {
-    const images = []
-
-    const darkTauriLogo = (new Image().src = 'img/header_dark.svg')
-    images.push(darkTauriLogo)
-
-    const lightTauriLogo = (new Image().src = 'img/header_light.svg')
-    images.push(lightTauriLogo)
-  }, [])
-
-  // Set dark mode correctly
-  useEffect(() => {
-    setIsDarkMode(colorMode === 'dark')
-  }, [colorMode])
-
-  return (
-    <img
-      src={
-        isDarkMode
-          ? '/img/index/header_dark.svg'
-          : '/img/index/header_light.svg'
-      }
-    />
-  )
-}
-
 export default function App() {
   const context = useDocusaurusContext()
   const latestVersion = useLatestVersion()
 
-  return (
-    <Layout
-      title={`${context.siteConfig.tagline}`}
-      description={translate({
-        message:
-          'Tauri is a framework for building tiny, blazing fast binaries for all major desktop platforms. Developers can integrate any front-end framework that compiles to HTML, JS and CSS for building their user interface.',
-      })}
-    >
-      <header className={classNames('hero', styles.hero)}>
-        <div className={classNames(styles.heroContainer)}>
-          {/* <span className={classNames(styles.heroImage)}>
-            <DynamicHeaderImage />
-          </span> */}
-          <br />
-          <div className={classNames(styles.heroSubtitle, 'hero__subtitle')}>
-            <Translate>
-              Building a Stable, Secure, and Efficient Live Streaming Media Service
-            </Translate>
-          </div>
+  // return (
+  //   <Layout
+  //     title={`${context.siteConfig.tagline}`}
+  //     description={translate({
+  //       message:
+  //         'Tauri is a framework for building tiny, blazing fast binaries for all major desktop platforms. Developers can integrate any front-end framework that compiles to HTML, JS and CSS for building their user interface.',
+  //     })}
+  //   >
+  //     <header className={classNames('hero', styles.hero)}>
+  //       <div className={classNames(styles.heroContainer)}>
 
-          <div className={classNames(styles.heroSubtitle2, 'hero__subtitle')}>
-            <Translate>
-              XIU is a simple, secure, convenient and efficient
-              pure RUST live media framework.
-            </Translate>
-          </div>
+  //         <br />
+  //         <div className={classNames(styles.heroSubtitle, 'hero__subtitle')}>
+  //           <Translate>
+  //             Building a Stable, Secure, and Efficient Live Streaming Media Service
+  //           </Translate>
+  //         </div>
 
-          <br />
+  //         <div className={classNames(styles.heroSubtitle2, 'hero__subtitle')}>
+  //           <Translate>
+  //             XIU is a simple, secure, convenient and efficient
+  //             pure RUST live media framework.
+  //           </Translate>
+  //         </div>
 
-          {/* <div className={classNames(styles.commandContainer)}>
-            <CreateTauriApp />
-          </div> */}
+  //         <br />
 
-          <Link
-            className={classNames('button button--secondary button--lg')}
-            to={'./docs/getting-started/quickstart'}
-          >
-            <Translate>Quick Start</Translate>
-          </Link>
-        </div>
-      </header>
+  //         <Link
+  //           className={classNames('button button--secondary button--lg')}
+  //           to={'./docs/getting-started/quickstart'}
+  //         >
+  //           <Translate>Quick Start</Translate>
+  //         </Link>
+  //       </div>
+  //     </header>
 
-      <main>
-        <section className="container">
-          <div className={classNames(styles.row)}>
-            <Cards />
-          </div>
-        </section>
+  //     <main>
+  //       <section className="container">
+  //         <div className={classNames(styles.row)}>
+  //           <Cards />
+  //         </div>
+  //       </section>
 
 
-      </main>
-    </Layout>)
+  //     </main>
+  //   </Layout>)
+
+  return <Redirect to="/ffmpeg/" />;
+
+
 
 
 

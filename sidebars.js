@@ -1,7 +1,7 @@
 const docs = [
   {
     type: 'category',
-    label: 'Docs',
+    label: 'FFmpeg',
     link: { type: 'doc', id: 'docs/readme' },
     items: [
       {
@@ -15,7 +15,7 @@ const docs = [
 const blog = [
   {
     type: 'category',
-    label: 'Blog',
+    label: 'Git',
     link: { type: 'doc', id: 'blog/readme' },
     items: [
       {

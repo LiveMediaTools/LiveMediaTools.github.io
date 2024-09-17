@@ -18,13 +18,13 @@ const repoUrl = 'https://github.com/harlanc/xiu'
 
 const navbarItems = [
   {
-    label: 'Docs',
+    label: 'FFmpeg',
     type: 'docSidebar',
     sidebarId: 'docs',
   },
   
   {
-    label: 'Blog',
+    label: 'Git',
     type: 'docSidebar',
     sidebarId: 'blog',
   },
@@ -54,11 +54,11 @@ const footerLinks = [
     title: 'Learning',
     items: [
       {
-        label: 'Docs',
+        label: 'FFmpeg',
         to: 'docs',
       },
       {
-        label: 'Blog',
+        label: 'Git',
         to: 'blog',
       },
     ],
