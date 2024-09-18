@@ -15,7 +15,7 @@
       "lvl4": "article h5",
       "text": "article p, article li"
     },
-    "docs": {
+    "ffmpeg": {
       "lvl0": {
         "selector": "",
         "default_value": "Documentation"
@@ -50,7 +50,7 @@
       "lvl5": "article h5",
       "text": "article :not(blockquote) > p, article li"
     },
-    "blog": {
+    "git": {
       "lvl0": {
         "selector": "",
         "default_value": "References"

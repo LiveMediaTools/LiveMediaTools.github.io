@@ -1,0 +1,4 @@
+label: 'FFmpeg'
+position: 1
+customProps:
+  description: How to install and build xiu project.

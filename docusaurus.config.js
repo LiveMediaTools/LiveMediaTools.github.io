@@ -20,7 +20,7 @@ const navbarItems = [
   {
     label: 'FFmpeg',
     type: 'docSidebar',
-    sidebarId: 'docs',
+    sidebarId: 'ffmpeg',
   },
   
   {
@@ -55,11 +55,11 @@ const footerLinks = [
     items: [
       {
         label: 'FFmpeg',
-        to: 'docs',
+        to: 'ffmpeg',
       },
       {
         label: 'Git',
-        to: 'blog',
+        to: 'git',
       },
     ],
   },
@@ -207,7 +207,7 @@ async function siteConfig() {
               return sidebarItems.filter(
                 (item) =>
                   // This makes sure that the landing pages are not duplicated in the sidebars
-                  item.id !== 'docs/readme' && item.id !== 'blog/readme'
+                  item.id !== 'ffmpeg/readme' && item.id !== 'git/readme'
               )
             },
           },

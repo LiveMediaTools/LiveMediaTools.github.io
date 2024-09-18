@@ -23,10 +23,6 @@
     "message": "鉴权",
     "description": "The label for Authentication in sidebar guides"
   },
-  "sidebar.docs.category.Http Callback": {
-    "message": "HTTP Callback",
-    "description": "The label for HTTP callback in sidebar guides"
-  },
   "sidebar.docs.category.WebDriver Testing": {
     "message": "WebDriver 测试",
     "description": "The label for category WebDriver Testing in sidebar guides"
