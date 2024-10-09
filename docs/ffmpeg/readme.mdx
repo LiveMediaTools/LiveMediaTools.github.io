@@ -1,34 +1,8 @@
 import DocCardList from '@theme/DocCardList'
 import { useCurrentSidebarCategory } from '@docusaurus/theme-common'
 
-# FFmpeg
+# Introduction
 
-Xiu is a live streaming media framework in pure Rust. Its goal is to make it easy and quick for developers to build live streaming media services.
-
-It supports popular streaming media protocols such as RTMP/HTTP-FLV/HLS out of the box and can also easily extend to other protocols for on-demand development.
-
-Currently supported features include:
-
-## Features
-- [x] Support multiple platforms(Linux/MacOS/Windows).
-- [x] Support RTMP.
-   - [x] Support publishing or subscribing H.264/AAC streams.
-   - [x] Support GOP cache which can be configured in the configuration file.
-   - [x] Support protocol conversion from RTMP to HTTP-FLV/HLS.
-   - [x] Support cluster.
-- [x] Support RTSP.
-  - [x] Support publishing or subscribing H.265/H.264/AAC stream over both TCP(Interleaved) and UDP.
-  - [x] Support protocol conversion from RTSP to RTMP/HLS/HTTP-FLV.
-- [x] Support WebRTC(Whip/Whep).
-  - [x] Support publishing rtc stream using Whip.
-  - [x] Support subscribing rtc stream using Whep.
-  - [x] Support protocol conversion from WHIP to RTMP/HLS/HTTP-FLV.
-- [x] Support HTTP-FLV/HLS protocols(Transferred from RTMP/RTSP).
-- [x] Support configuring the service using command line or a configuration file.
-- [x] Support HTTP API/Notifications.
-  - [x] Support querying stream information.
-  - [x] Support notification of stream status.
-- [x] Support token authentications.
-- [x] Support recording live streams into HLS files(m3u8+ts).
+FFmpeg is a very powerful and popular audio and video processing tool, but it operates through the command line, where the various parameters can be quite complex. The official documentation explains the usage of each parameter individually, but combining these parameters to meet specific needs can be challenging. Here, I will record some commonly used complete command lines that can be used directly. If you have any commonly used commands, feel free to share them!
 
 <DocCardList items={useCurrentSidebarCategory().items} />

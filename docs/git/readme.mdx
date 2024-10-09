@@ -1,9 +1,25 @@
-
-
-
 import DocCardList from '@theme/DocCardList'
 import { useCurrentSidebarCategory } from '@docusaurus/theme-common'
 
-# Git
+# GIT
 
-Some technical details about XIU will be introduced, stay tuned.
+## Query
+
+Used to display all remote repositories of the current repository along with their corresponding URLs:
+```shell
+git remote -v
+```
+
+## Update
+
+```shell
+git config --global user.name "your name"
+git config --global user.email "your email@example.com"
+```
+
+If you only want to update the current project：
+
+```shell
+git config user.name "your name"
+git config user.email "your email@example.com"
+```

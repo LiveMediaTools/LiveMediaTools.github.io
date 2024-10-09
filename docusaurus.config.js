@@ -26,8 +26,21 @@ const navbarItems = [
   {
     label: 'Git',
     type: 'docSidebar',
-    sidebarId: 'blog',
+    sidebarId: 'git',
   },
+
+  {
+    label: 'Docker',
+    type: 'docSidebar',
+    sidebarId: 'docker',
+  },
+
+  {
+    label: 'Network',
+    type: 'docSidebar',
+    sidebarId: 'network',
+  },
+
 
   {
     href: repoUrl,
@@ -122,18 +135,18 @@ async function siteConfig() {
         disableSwitch: false,
         respectPrefersColorScheme: true,
       },
-      announcementBar: {
-        content:
-          "<b>🚀 The <a id='announcement-link' href='https://github.com/harlanc/xiu/releases/tag/v0.12.5'>XIU v0.12.5</a> has launched!</b>",
-        backgroundColor: 'var(--ifm-color-primary)',
-        textColor: 'var(--ifm-button-color)',
-      },
+      //announcementBar: {
+      //  content:
+      //    "<b>🚀 The <a id='announcement-link' href='https://github.com/harlanc/xiu/releases/tag/v0.12.5'>XIU v0.12.5</a> has launched!</b>",
+      //  backgroundColor: 'var(--ifm-color-primary)',
+      //  textColor: 'var(--ifm-button-color)',
+      //},
       navbar: {
         hideOnScroll: false,
         logo: {
           alt: 'XIU Logo',
-          src: 'meta/xiu_logo.svg',
-          srcDark: 'meta/xiu_logo.svg',
+          src: 'meta/yourcmds.svg',
+          srcDark: 'meta/yourcmds.svg',
         },
         items: navbarItems,
       },
@@ -207,7 +220,7 @@ async function siteConfig() {
               return sidebarItems.filter(
                 (item) =>
                   // This makes sure that the landing pages are not duplicated in the sidebars
-                  item.id !== 'ffmpeg/readme' && item.id !== 'git/readme'
+                  item.id !== 'ffmpeg/readme' && item.id !== 'git/readme'  && item.id !== 'docker/readme' && item.id !== 'network/readme'
               )
             },
           },

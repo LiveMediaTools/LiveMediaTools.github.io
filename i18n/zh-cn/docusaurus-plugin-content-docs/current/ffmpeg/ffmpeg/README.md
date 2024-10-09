@@ -110,14 +110,15 @@ ffmpeg转码主要涉及到：
  - 恒定码率变动态码率：根据画面复杂度动态调整码率，节省网络带宽，提升用户体验。
 
 
-### RTMP直播流转码成720P H264
+### 5.1、RTMP直播流转码成720P H264
 
 
 ```shell
- ffmpeg -re  -i 'rtmp://localhost:1935/live/test' -acodec libfdk_aac -b:a 64k -ac 2 -ar 44100 -profile:a aac_he  -vcodec libx264 -b:v 1700k -level 3.1 -vprofile high -vsync 2 -strict -2 -preset medium -bf 3 -force_key_frames source  -f flv -loglevel level+info -vf "scale='720:-2'" -y 'rtmp://localhost:1935/live/dest'
+ ffmpeg -rw_timeout 5000000 -i 'rtmp://localhost:1935/live/source' -acodec libfdk_aac -b:a 64k -ac 2 -ar 44100 -profile:a aac_he  -vcodec libx264 -b:v 2000k -level 3.1 -vprofile high -vsync 2 -strict -2 -preset medium -bf 3 -force_key_frames source  -f flv -loglevel level+info -vf "scale='720:-2'" 'rtmp://localhost:1935/live/dest'
  ```
 #### 参数解释
 
+- -rw_timeout 5000000 设置读写超时时间，单位是微秒，5000000为5秒。如果在这个时间内没有完成读写操作，FFmpeg 将会停止操作并报告超时错误。
 - -acodec 执行音频编码器fdk_aac，这个编码库是开源的，支持LC、HE-AAC、HE-AAC-V2三种profile级别。
 - -b:a 指定音频码率
 - -ac 指定音频通道数2
@@ -126,11 +127,33 @@ ffmpeg转码主要涉及到：
 
 - -vcodec 执行视频编码器为x264
 - -b:v 指定视频码率为1700Kbits/s
-- -level 
+- -level 用于约束码率、帧率和分辨率
 
 ![H264 Level](/img/docs/ffmpeg/h264_level.png)
 
-source
+- -vprofile 是用来定义一组编码工具和特性的集合，以满足不同使用场景和性能需求。
+
+![H264 Profile](/img/docs/ffmpeg/h264_profile.png)
+
+- -vsync 2 帧会连同其时间戳一起通过或丢弃，以防止 2 个帧具有相同的时间戳。
+
+- -preset medium 指定编码速速和压缩比，编码速度越快，压缩比越低。[FFmpeg doc](https://trac.ffmpeg.org/wiki/Encode/H.264)
+  
+- -bf 3 指定B帧数目为3个，通常是两个P帧之间编码3个B帧。
+  
+- -force_key_frames source 关键帧编码跟随源流，如果当前帧在源流中为关键帧，则编码输出关键帧，如果源流中的当前帧必须被丢弃，则下一帧输出关键帧。
+- -flv 指定封装格式为flv
+- -loglevel level+info 添加日志级别前缀、指定日志级别为info。
+- -vf "scale='720:-2'" 视频过滤器参数，scale 是用于缩放视频的过滤器，'720:-2' 指定了输出视频的宽度和高度：720 表示输出视频的宽度将被设置为 720 像素，-2 表示高度将自动计算，以保持原始视频的宽高比。
+
+
+### 5.2、RTMP直播流转码成720P H265
+
+```shell
+ ffmpeg -rw_timeout 5000000 -i "rtmp://localhost:1935/live/source" -vcodec libx265 -b:v 2000k -acodec libfdk_aac -b:a 64k -ac 2 -ar 44100 -profile:a aac_he -preset veryfast -bf 3 -force_key_frames source -f flv -loglevel level+info -vf scale='720:-2' “rtmp://localhost:1935/live/dest”
+```
+
+<!--source
 If the argument is source, ffmpeg will force a key frame if the current frame being encoded is marked as a key frame in its source. In cases where this particular source frame has to be dropped, enforce the next available frame to become a key frame instead.
 
 https://stackoverflow.com/questions/72176109/maintain-keyframes-when-transcoding-and-removing-b-frames
@@ -138,3 +161,11 @@ https://stackoverflow.com/questions/72176109/maintain-keyframes-when-transcoding
 https://www.reddit.com/r/ffmpeg/comments/pvtd1o/vsync_0_vs_vsync_2_for_getting_the_timestamps_of/
 
 https://winddoing.github.io/post/e114a1a8.html#level
+
+
+
+http://forum.doom9.org/archive/index.php/t-165627.html
+
+level
+
+https://www.cnblogs.com/zyl910/archive/2011/12/08/h264_level.html-->
