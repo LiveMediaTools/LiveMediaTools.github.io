@@ -1,22 +1,8 @@
-# GIT
+import DocCardList from "@theme/DocCardList";
+import { useCurrentSidebarCategory } from "@docusaurus/theme-common";
 
-## 查询
+# Introduction
 
-用于显示当前仓库的所有远程仓库及其对应的 URL：
-```shell
-git remote -v
-```
+Sharing the usage of some network-related tools.
 
-## 更新
-
-```shell
-git config --global user.name "你的名字"
-git config --global user.email "你的邮箱@example.com"
-```
-
-如果只想更新当前项目
-
-```shell
-git config user.name "你的名字"
-git config user.email "你的邮箱@example.com"
-```
+<DocCardList items={useCurrentSidebarCategory().items} />

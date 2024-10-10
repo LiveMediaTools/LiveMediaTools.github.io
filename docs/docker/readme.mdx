@@ -1,22 +1,112 @@
-# GIT
 
-## 查询
+import DocCardList from '@theme/DocCardList'
 
-用于显示当前仓库的所有远程仓库及其对应的 URL：
-```shell
-git remote -v
-```
 
-## 更新
+# Docker
 
-```shell
-git config --global user.name "你的名字"
-git config --global user.email "你的邮箱@example.com"
-```
+## 1、Basic Commands
 
-如果只想更新当前项目
+### 1.1、Pull Docker Images
 
 ```shell
-git config user.name "你的名字"
-git config user.email "你的邮箱@example.com"
+docker pull docker.io/library/centos:7.9.2009
 ```
+
+### 1.2、Run Docker
+
+```shell
+docker run -it  docker.io/library/centos:7.9.2009 /bin/bash 
+```
+
+#### Parameter Explanation
+- -it allocates a pseudo-terminal and keeps the standard input open, suitable for interactive operations.
+- /bin/bash  is the command to run after the container starts, which opens a Bash terminal.
+
+
+### 1.3、View all Docker instances
+
+```shell
+docker ps -a
+```
+#### Parameter Explanation
+- -a lists all containers, including stopped ones. If -a is not added, only running ones are displayed."
+
+### 1.4、Enter the Docker container
+```shell
+docker  exec -it <container ID or name> /bin/bash
+```
+
+### 1.5、View Docker Images
+
+```shell
+docker images
+```
+
+### 1.6、Clean Docker Images
+
+
+
+#### 1.6.1、Remove Unused Images
+
+```shell
+docker image prune
+```
+#### 1.6.2、Forcefully remove unused Images
+
+```shell
+docker image prune -a
+```
+
+This will delete all images not used by any containers, including dangling images.
+
+#### 1.6.3、Remove a Specific Image
+
+```shell
+docker rmi <image_id_or_name>
+```
+
+## 2、Advanced Commands
+
+### 2.1、Pull And Run Image
+
+```shell
+docker run --cap-add=SYS_PTRACE -d -it --net=bridge --name centos7 --privileged=true -w /youcmds/workspace -e "PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/" -e "LD_LIBRARY_PATH=/usr/local/lib64:/usr/local/lib:/usr/lib64:/usr/lib:/lib64:/lib" -p 1935-2935:1935-2935 -v /Users/yourcmds/workspace:/youcmds/workspace docker.io/library/centos:7.9.2009 /bin/bash 
+```
+
+#### Parameter Explanation
+
+- --cap-add parameter can be used to add different permissions to a Docker container, including:
+
+    NET_ADMIN：Allows the container to have network management capabilities. This means the container can perform network configuration tasks, such as changing interface settings, adding, or deleting routes, etc. It grants the container greater control over network settings, suitable for applications that need to manage network configurations.
+
+    SYS_ADMIN：Adds system administrator permissions, allowing processes within the container to perform system-level management operations, such as mounting file systems, setting the time, modifying the hostname, etc.  
+
+    SYS_PTRACE： Adds system tracing permissions, allowing processes within the container to use the ptrace system call for debugging and monitoring other processes.
+
+    SYS_CHROOT：Adds permission to change the root directory, allowing processes within the container to use the chroot system call to create a new root filesystem environment in a specified directory.
+
+    SYS_MODULE：Adds module loading/unloading permissions, allowing processes within the container to load and unload kernel modules.
+
+    SYS_RAWIO：Adds raw I/O permissions, allowing processes within the container to perform raw read and write operations on devices, bypassing the filesystem abstraction provided by the operating system.
+
+    SYS_TIME：Adds time management permissions, allowing processes within the container to modify the system time.
+
+- --net option sets the Docker network mode, with commonly used network modes including:
+
+    bridge： The default mode, where Docker creates a virtual bridge, allowing containers to connect to the host's network through this bridge. This is suitable for most common scenarios.
+    
+    host：The container uses the host's network stack directly, which is suitable for applications that have high network performance requirements but sacrifices network isolation between containers.
+    
+    none：No network is connected, suitable for scenarios requiring complete isolation.
+    
+    container：This mode allows a new container to share the network stack of an existing container, meaning they share the same IP address and ports.
+    
+    overlay：Used in cluster environments across multiple Docker hosts (such as Docker Swarm or Kubernetes), allowing containers to communicate between different hosts.
+
+- -d：Run the container in detached mode.
+- --name centos7：Specify a name for the container (centos7).
+- -w /youcmds/workspace：Set the working directory in the container.
+- -e Set environment variables.
+- -p 1935-2935:1935-2935：Map the host's port range 1935-2935 to the same port range in the container.
+- -v /Users/yourcmds/workspace:/youcmds/workspace：Mount a host directory to the specified path in the container to enable file sharing.
+- docker.io/library/centos:7.9.2009： Image pull address.

@@ -1,13 +1,15 @@
 # GIT
 
-## 查询
+## 1、基本命令
+
+### 1.1、查询远程仓库
 
 用于显示当前仓库的所有远程仓库及其对应的 URL：
 ```shell
 git remote -v
 ```
 
-## 更新
+### 1.2、更新提交账户信息
 
 ```shell
 git config --global user.name "你的名字"
@@ -20,3 +22,10 @@ git config --global user.email "你的邮箱@example.com"
 git config user.name "你的名字"
 git config user.email "你的邮箱@example.com"
 ```
+
+### 1.3、修改远程仓库地址
+
+```shell
+git remote set-url origin <new-url>
+```
+

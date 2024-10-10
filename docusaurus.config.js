@@ -74,6 +74,14 @@ const footerLinks = [
         label: 'Git',
         to: 'git',
       },
+      {
+        label: 'Docker',
+        to: 'docker',
+      },
+      {
+        label: 'Network',
+        to: 'network',
+      },
     ],
   },
   {
@@ -112,7 +120,7 @@ const footerLinks = [
 async function siteConfig() {
   const mdxMermaid = await import('mdx-mermaid')
   return {
-    title: 'XIU',
+    title: 'YCMDs',
     tagline:
       'Building a Stable, Secure, and Efficient Live Streaming Media Service',
     organizationName: 'harlanc',
@@ -135,16 +143,11 @@ async function siteConfig() {
         disableSwitch: false,
         respectPrefersColorScheme: true,
       },
-      //announcementBar: {
-      //  content:
-      //    "<b>🚀 The <a id='announcement-link' href='https://github.com/harlanc/xiu/releases/tag/v0.12.5'>XIU v0.12.5</a> has launched!</b>",
-      //  backgroundColor: 'var(--ifm-color-primary)',
-      //  textColor: 'var(--ifm-button-color)',
-      //},
+
       navbar: {
         hideOnScroll: false,
         logo: {
-          alt: 'XIU Logo',
+          alt: 'YCMDs Logo',
           src: 'meta/yourcmds.svg',
           srcDark: 'meta/yourcmds.svg',
         },
@@ -154,7 +157,7 @@ async function siteConfig() {
       footer: {
         style: 'dark',
         links: footerLinks,
-        copyright: `Copyright © 2020 - ${new Date().getFullYear()} XIU. CC-BY / MIT`,
+        copyright: `Copyright © 2020 - ${new Date().getFullYear()} YCMDs. CC-BY / MIT`,
       },
       algolia: {
         apiKey: 'ad5dde2a008c91222da4d37bb980979c',
