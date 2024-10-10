@@ -14,7 +14,7 @@ try {
   console.error()
 }
 
-const repoUrl = 'https://github.com/harlanc/xiu'
+
 
 const navbarItems = [
   {
@@ -22,7 +22,7 @@ const navbarItems = [
     type: 'docSidebar',
     sidebarId: 'ffmpeg',
   },
-  
+
   {
     label: 'Git',
     type: 'docSidebar',
@@ -41,30 +41,17 @@ const navbarItems = [
     sidebarId: 'network',
   },
 
-
-  {
-    href: repoUrl,
-    'aria-label': 'GitHub',
-    position: 'right',
-    className: 'navbarIcon gitHubIcon',
-    target: '_self',
-  },
   {
     type: 'localeDropdown',
     position: 'right',
-    // dropdownItemsAfter: [
-    //   {
-    //     to: 'https://tauri.crowdin.com/documentation',
-    //     label: 'Help us translate',
-    //   },
-    // ],
+
   },
 
 ]
 
 const footerLinks = [
   {
-    title: 'Learning',
+    title: 'Navigation',
     items: [
       {
         label: 'FFmpeg',
@@ -85,6 +72,27 @@ const footerLinks = [
     ],
   },
   {
+    title: 'Reference Docs',
+    items: [
+      {
+        label: 'FFmpeg',
+        href: 'https://ffmpeg.org/ffmpeg.html',
+        target: '_self',
+      },
+      {
+        label: 'Git',
+        href: 'https://git-scm.com/doc',
+        target: '_self',
+      },
+      {
+        label: 'Docker',
+        href: 'https://docs.docker.com/',
+        target: '_self',
+      },
+    ]
+
+  },
+  {
     title: 'Contact',
     items: [
       {
@@ -100,21 +108,12 @@ const footerLinks = [
     items: [
       {
         label: 'GitHub',
-        href: 'https://github.com/harlanc/xiu',
+        href: "https://github.com/LiveMediaTools/LiveMediaTools.github.io",
         target: '_self',
       },
     ],
   },
-  {
-    title: 'Community',
-    items: [
-      {
-        label: 'Discord',
-        href: 'https://discord.gg/gS5wBRtpcB',
-        target: '_self',
-      },
-    ],
-  },
+
 ]
 
 async function siteConfig() {
@@ -123,11 +122,11 @@ async function siteConfig() {
     title: 'YCMDs',
     tagline:
       'Building a Stable, Secure, and Efficient Live Streaming Media Service',
-    organizationName: 'harlanc',
-    projectName: 'harlanc.github.io',
+    organizationName: 'LiveMediaTools',
+    projectName: 'LiveMediaTools.github.io',
     baseUrl: '/',
-    favicon: '/meta/xiu.png',
-    url: 'https://rustxiu.com/',
+    favicon: '/meta/yourcmds.png',
+    url: 'https://ycmds.cc/',
     i18n: {
       defaultLocale: 'en',
       locales: ['en', 'zh-cn',],
@@ -159,12 +158,12 @@ async function siteConfig() {
         links: footerLinks,
         copyright: `Copyright © 2020 - ${new Date().getFullYear()} YCMDs. CC-BY / MIT`,
       },
-      algolia: {
-        apiKey: 'ad5dde2a008c91222da4d37bb980979c',
-        indexName: 'harlancio',
-        appId: '0TA4S52VKE',
-        placeholder: 'Search...'
-      },
+      // algolia: {
+      //   apiKey: 'ad5dde2a008c91222da4d37bb980979c',
+      //   indexName: 'harlancio',
+      //   appId: '0TA4S52VKE',
+      //   placeholder: 'Search...'
+      // },
     },
 
     presets: [
@@ -179,14 +178,14 @@ async function siteConfig() {
             showLastUpdateTime: true,
             editUrl: ({ docPath, versionDocsDirPath }) => {
               if (docPath === 'api/cli.md') {
-                return 'https://github.com/harlanc/xiu-doc/tree/main/tooling/cli/src'
+                return 'https://github.com/LiveMediaTools/LiveMediaTools.github.io/tree/main/tooling/cli/src'
               } else if (docPath === 'api/config.md') {
-                return 'https://github.com/harlanc/xiu-doc/edit/main/core/tauri-utils/src/config.rs'
+                return 'https://github.com/LiveMediaTools/LiveMediaTools.github.io/edit/main/core/tauri-utils/src/config.rs'
               } else if (docPath.startsWith('api/js')) {
                 const mod = docPath.split('/').at(-1).split('.')[0]
-                return `https://github.com/harlanc/xiu-doc/edit/main/tooling/api/src/${mod}.ts`
+                return `https://github.com/LiveMediaTools/LiveMediaTools.github.io/edit/main/tooling/api/src/${mod}.ts`
               } else {
-                return `https://github.com/harlanc/xiu-doc/edit/main/${versionDocsDirPath}/${docPath}`
+                return `https://github.com/LiveMediaTools/LiveMediaTools.github.io/edit/main/${versionDocsDirPath}/${docPath}`
               }
             },
             sidebarCollapsible: true,
@@ -223,7 +222,7 @@ async function siteConfig() {
               return sidebarItems.filter(
                 (item) =>
                   // This makes sure that the landing pages are not duplicated in the sidebars
-                  item.id !== 'ffmpeg/readme' && item.id !== 'git/readme'  && item.id !== 'docker/readme' && item.id !== 'network/readme'
+                  item.id !== 'ffmpeg/readme' && item.id !== 'git/readme' && item.id !== 'docker/readme' && item.id !== 'network/readme'
               )
             },
           },
@@ -234,7 +233,7 @@ async function siteConfig() {
           gtag: {
             trackingID: 'G-2H6DLY9T0Y',
             anonymizeIP: true,
-           },
+          },
         },
       ],
     ],
