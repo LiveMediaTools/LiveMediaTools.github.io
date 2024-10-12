@@ -90,7 +90,7 @@ const footerLinks = [
         target: '_self',
       },
       {
-        label: 'RustXIU',
+        label: 'Xiu',
         href: 'https://www.rustxiu.com/',
         target: '_self',
       },
@@ -235,10 +235,11 @@ async function siteConfig() {
           theme: {
             customCss: require.resolve('./src/css/custom.css'),
           },
-          // gtag: {
-          //   trackingID: 'G-2H6DLY9T0Y',
-          //   anonymizeIP: true,
-          // },
+           gtag: {
+             //trackingID: 'G-2H6DLY9T0Y',
+             trackingID: 'G-XXR2RYVJB8',
+             anonymizeIP: true,
+           },
         },
       ],
     ],
