@@ -89,6 +89,11 @@ const footerLinks = [
         href: 'https://docs.docker.com/',
         target: '_self',
       },
+      {
+        label: 'RustXIU',
+        href: 'https://www.rustxiu.com/',
+        target: '_self',
+      },
     ]
 
   },
@@ -128,7 +133,7 @@ async function siteConfig() {
     favicon: '/meta/yourcmds.png',
     url: 'https://ycmds.cc/',
     i18n: {
-      defaultLocale: 'en',
+      defaultLocale: 'zh-cn',
       locales: ['en', 'zh-cn',],
     },
     themeConfig: {
