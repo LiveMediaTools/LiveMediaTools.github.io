@@ -3,8 +3,6 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 # FFplay
 
-<!-- <DocCardList items={useCurrentSidebarCategory().items}/> -->
-
 ## Play RTMP stream
 
 ### Play

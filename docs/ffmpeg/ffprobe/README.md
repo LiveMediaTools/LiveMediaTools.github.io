@@ -3,7 +3,6 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 
 # FFprobe
 
-
 ## 1、Query Stream Information
 
 ### 1.1 Print Video Stream Information

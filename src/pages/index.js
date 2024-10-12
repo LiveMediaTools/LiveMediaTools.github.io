@@ -263,7 +263,7 @@ function Logo(props) {
 export default function App() {
   const context = useDocusaurusContext()
   const latestVersion = useLatestVersion()
-
+  
   // return (
   //   <Layout
   //     title={`${context.siteConfig.tagline}`}
@@ -310,11 +310,6 @@ export default function App() {
 
   //     </main>
   //   </Layout>)
-
-  return <Redirect to="/ffmpeg/" />;
-
-
-
-
+  return <Redirect to= "ffmpeg" />;
 
 }

@@ -65,6 +65,27 @@ docker image prune -a
 docker rmi <image_id_or_name>
 ```
 
+#### 1.6.4、导出容器到文件
+
+```shell
+docker export <container_id>  -o  image.tar
+```
+
+#### 1.6.5、导出镜像到文件
+
+```shell
+docker save -o image.tar <repository_name>:<tag> or <image_id>
+```
+
+#### 1.6.5、从文件加载成docker镜像
+
+```shell
+cat image.tar | docker import - <repository_name>:<tag>
+```
+
+其中，<repository_name>是你要上传到的镜像仓库名称，<tag\>是镜像的标签。
+
+
 ## 2、高阶命令
 
 ### 2.1、拉取并运行镜像
