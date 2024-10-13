@@ -163,12 +163,12 @@ async function siteConfig() {
         links: footerLinks,
         copyright: `Copyright © 2020 - ${new Date().getFullYear()} YCMDs. CC-BY / MIT`,
       },
-      // algolia: {
-      //   apiKey: 'ad5dde2a008c91222da4d37bb980979c',
-      //   indexName: 'harlancio',
-      //   appId: '0TA4S52VKE',
-      //   placeholder: 'Search...'
-      // },
+       algolia: {
+         apiKey: 'd3b19ac2c8fcb40f3883d34b80503443',
+         indexName: 'ycmds',
+         appId: 'FIKQL3KCJX',
+         placeholder: 'Search...'
+       },
     },
 
     presets: [
