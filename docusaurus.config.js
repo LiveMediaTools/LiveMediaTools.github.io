@@ -164,9 +164,9 @@ async function siteConfig() {
         copyright: `Copyright © 2020 - ${new Date().getFullYear()} YCMDs. CC-BY / MIT`,
       },
        algolia: {
-         apiKey: 'd3b19ac2c8fcb40f3883d34b80503443',
+         apiKey: '6c2af84be0fab2c04c4c7a5a309e4539',
          indexName: 'ycmds',
-         appId: 'FIKQL3KCJX',
+         appId: 'ZXQF8SEKQU',
          placeholder: 'Search...'
        },
     },
