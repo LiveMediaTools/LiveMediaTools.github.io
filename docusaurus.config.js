@@ -14,6 +14,7 @@ try {
   console.error()
 }
 
+const repoUrl = 'https://github.com/LiveMediaTools/LiveMediaTools.github.io'
 
 
 const navbarItems = [
@@ -39,6 +40,14 @@ const navbarItems = [
     label: 'Network',
     type: 'docSidebar',
     sidebarId: 'network',
+  },
+
+  {
+    href: repoUrl,
+    'aria-label': 'GitHub',
+    position: 'right',
+    className: 'navbarIcon gitHubIcon',
+    target: '_self',
   },
 
   {
